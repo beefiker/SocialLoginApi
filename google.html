@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="Your Client ID" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hellojs/1.19.2/hello.js"
+      integrity="sha512-G/Vw6c6C9Z5y5ypd9BZaFRD0zgeD+gygazBzKCJcZmSJn29AFS1t+Plomp/R18Lpj+t5/Njy2WMnZLsyrfmJbg=="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Google</title>
+    <style>
+      #container {
+        display: flex;
+        justify-content: center;
+      }
+      .g-signin2 {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
+    <script>
+      // My current redirect url is http://localhost:5500
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
+    </script>
+  </body>
+</html>
