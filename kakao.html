@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카카오 로그인</title>
+    <style>
+      #container {
+        display: flex;
+        justify-content: center;
+      }
+      img {
+        margin-top: 50px;
+        height: 100px;
+        width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <a href="javascript:KakaoLogin();"
+        ><img
+          src="https://lh3.googleusercontent.com/proxy/n7kFiH9kj07cotTwwzk_uJqvemhFV0_dxklRe8CELXf1Rma2Tilv6qhLeWsuArHLzhqWn2fzmkYBkPLSvFRziuVHChHqUeyD9cyccw"
+      /></a>
+    </div>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      Kakao.init("Api key");
+      console.log("Init state : " + Kakao.isInitialized());
+      function KakaoLogin() {
+        Kakao.Auth.login({
+          scope: "profile, account_email, gender",
+          success: function (authObj) {
+            // console.log(authObj);
+            Kakao.API.request({
+              url: "/v2/user/me",
+              success: (res) => {
+                console.log(res.kakao_account);
+              },
+            });
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
