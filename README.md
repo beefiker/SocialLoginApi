@@ -1,10 +1,10 @@
 # SocialLoginApiTest
 ## Kakao
-![kakao](kakaoHTML.png "kakao_index")
+![kakao](kakaoHTML.png)
 - return example
 ![kakao_console](images/kakaoCONSOLELOG.png)
 
 ## Naver
-![naver](naverHTML.png "naver_index")
+![naver](naverHTML.png)
 - return example
 ![naver_console](images/naverCONSOLELOG.png)
